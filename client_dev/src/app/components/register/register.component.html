@@ -1,0 +1,75 @@
+<div class="contenido crearproyecto" *ngIf="user">  
+    <h2>{{title}}</h2>
+    <hr>
+    <div class="message success" *ngIf="status =='success'">
+        <p> El usuario se ha creado correctamente, puedes <a [routerLink]="['/usuario',save_user]">verlo aquí</a></p>
+    </div>
+
+    <div class="message failed" *ngIf="status == 'failed'">
+        <p> El usuario no se ha podido crear. </p>
+    </div>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required>
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                El nombre es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="surname">Apellidos</label>
+            <textarea name="surname" #surname="ngModel" [(ngModel)]="user.surname" required></textarea>
+            <span class="form_error" *ngIf="surname.touched && !surname.valid">
+                Los apellidos son obligatorios
+            </span>
+        </p>
+
+        <p>
+            <label for="nick">Alias</label>
+            <textarea name="nick" #nick="ngModel" [(ngModel)]="user.nick" required></textarea>
+            <span class="form_error" *ngIf="nick.touched && !nick.valid">
+                El Alias son obligatorios
+            </span>
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required>
+            <span class="form_error"  *ngIf="email.touched && !email.valid">
+                El email es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="type">Rol Usuario</label>
+            <select name="type" #type="ngModel" class="form-select" aria-label="Selecciona rol del Usuario" [(ngModel)]="user.type">
+                <option selected> Selecciona rol del usuario </option>
+                <option value="User"> User </option>
+                <option value="Admin"> Admin </option>
+            </select>
+        </p>
+
+        <p>
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+            <span class="form_error" *ngIf="password.touched && !password.valid">
+                La contraseña es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="image">Imagen del proyecto</label>
+            <span class="image" *ngIf="user">
+                <img src="{{url+'get-image-user/'+user.image}}" *ngIf="user.image" width="100" style="width:100px;"> 
+            </span><br>
+            <input type="file" name="image" placeholder="Subir imagen" (change)="fileChangeEvent($event)">
+        </p>
+
+        <div class="boton">
+            <input type="submit" class="botonweb" value="Enviar" [disabled]="!userForm.form.valid">
+        </div>
+
+    </form>
+</div>

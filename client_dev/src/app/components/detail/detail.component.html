@@ -1,0 +1,29 @@
+
+<div class="contenido content_user">
+    <div class="imgproyecto" *ngIf="project">
+        <img src="{{url+'get-image/'+project.image}}" *ngIf="project.image" class="img_project"> 
+    </div>
+    <div class="textoproyecto">
+        <h1 class="title_project">{{project.name}}</h1>
+        <p class="contenidotexto">{{project.description}}</p>
+        <p class="lenguajes">Lenguajes: {{project.langs}}</p>
+
+        <div class="boton">
+            <a class="botonweb" href={{project.category}} target="_blank" >Ver Web</a>
+        </div>
+
+        <div class="botones_proyecto" *ngIf="identity">
+            <p *ngIf="confirm==false">
+                <a [routerLink]="['/editar-proyecto', project._id]" class="button-edit botonweb"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                <a (click)="setConfirm(true)" class="button-delete botonweb"> <i class="fa-solid fa-trash"></i> </a>
+            </p>
+    
+            <p *ngIf="confirm==true">
+                <span class="confirm">Estas seguro de eliminar este proyecto</span> 
+                <a (click)="setConfirm(false)" class="button-edit botonweb"> Cancelar </a>
+                <a (click)="deleteProject(project._id)" class="button-delete botonweb"> Eliminar </a>
+            </p>
+        </div>
+       
+    </div>
+</div>

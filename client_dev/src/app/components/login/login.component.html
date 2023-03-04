@@ -1,0 +1,35 @@
+<div class="contenido crearproyecto">  
+    <h2>{{title}}</h2>
+
+    <div class="message success" *ngIf="status =='success'">
+        <p> Te has identificado correctamente, Bienvenido!! </p>
+    </div>
+
+    <div class="message failed" *ngIf="status == 'failed'">
+        <p> No te has podido identificar correctamente. </p>
+    </div>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            <span class="form_error"  *ngIf="email.touched && !email.valid">
+                El email no es correcto
+            </span>
+        </p>
+
+        <p>
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+            <span class="form_error" *ngIf="password.touched && !password.valid">
+                La contraseña es obligatoria
+            </span>
+        </p>
+
+        <div class="boton">
+            <input type="submit" class="botonweb" value="Enviar" [disabled]="!userForm.form.valid">
+        </div>
+
+    </form>
+</div>

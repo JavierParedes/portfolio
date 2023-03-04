@@ -1,0 +1,38 @@
+<footer>
+    <div class="footer_menu">
+        <div class="footer_caja">
+            <label class="logo_footer"> Jparvel </label>
+            <p> En este portfolio podrás encontrar todos mis trabajos realizado en los ultimos años 
+                con tecnologia MEAN STACK ( MongoDB, Express, Angular, NODEJS ).</p>
+            
+            <div class="redes">
+                <a href="https://instagram.com/jav.pv?igshid=ZDdkNTZiNTM=" target="_blank"><i class="fa-brands fa-instagram fa-3x iconos"></i></a>
+                <a href="https://es.linkedin.com/in/javier-paredes-vela-3a2233b4"><i class="fa-brands fa-linkedin fa-3x iconos"></i></a>
+            </div>    
+        </div>
+        <div class="footer_caja">
+            <h4> Menu </h4>
+            <ul class="menu_footer">
+                <li><a [routerLink]="['/sobre-mi']" [routerLinkActive]="['actived']"><i class="far fa-arrow-alt-circle-right"> </i> Sobre  mi</a></li>
+                <li><a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']"><i class="far fa-arrow-alt-circle-right"></i>  Proyectos </a></li>
+                <li><a [routerLink]="['/contacto']" [routerLinkActive]="['actived']"><i class="far fa-arrow-alt-circle-right"> </i> Contacto </a></li>
+            </ul>
+        </div>
+        <div class="footer_caja">
+            <h4> Politicas </h4>
+            <ul class="menu_footer">
+                <li><a [routerLink]="['/aviso-legal']" [routerLinkActive]="['actived']"><i class="far fa-arrow-alt-circle-right"> </i> Aviso Legal</a></li>
+                <li><a [routerLink]="['/politicas-privacidad']" [routerLinkActive]="['actived']"><i class="far fa-arrow-alt-circle-right"> </i> Politicas de Privacidad</a></li>
+                <li><a [routerLink]="['/politicas-cookies']" [routerLinkActive]="['actived']"><i class="far fa-arrow-alt-circle-right"> </i> Politicas de Cookies </a></li>
+            </ul>
+        </div>
+        <div class="footer_caja">
+            <h4> Contacto </h4>
+            <p class="icono_contacto"><a href="tel:+34680467514"><i class="fa-solid fa-phone"></i> +34 680 46 75 14 </a></p>
+            <p class="icono_contacto"><a href="mailto:jpv1988@gmail.com"><i class="fa-solid fa-envelope"></i> jpv1988@gmail.com </a></p>
+        </div>
+    </div>
+    <div class="legal">
+        <p> Portfolio @ 2023 - by Jparvel </p>
+    </div>
+</footer>

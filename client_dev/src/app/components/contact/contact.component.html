@@ -1,0 +1,43 @@
+<div class="contenido crearproyecto">  
+    <h2>{{title}}</h2>
+    <hr>
+
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm.value)">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name"  #name="ngModel" [(ngModel)]="nombre" required/>
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                El nombre es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="correo" required/>
+            <span class="form_error" *ngIf="email.touched && !email.valid">
+                La dirección email es obligatoria
+            </span>
+        </p>
+
+        <p>
+            <label for="asunto">Asunto</label>
+            <input type="text" name="asunto"  #asunto="ngModel" [(ngModel)]="text_asunto" required/>
+            <span class="form_error" *ngIf="asunto.touched && !asunto.valid">
+                El nombre es obligatorio
+            </span>
+        </p>
+
+        <p>
+            <label for="texto">Mensaje</label>
+            <textarea rows="4" cols="40" name="mensaje" #mensaje="ngModel" [(ngModel)]="text_mensaje" required> </textarea>
+            <span class="form_error"  *ngIf="mensaje.touched && !mensaje.valid">
+                La categoria es obligatoria
+            </span>
+        </p>
+
+        <div class="boton">
+            <input type="submit" class="botonweb" value="Enviar" [disabled]="!projectForm.form.valid">
+        </div>
+
+    </form>
+</div>

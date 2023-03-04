@@ -1,0 +1,88 @@
+<div class="title">
+    <div class="tarjeta">
+        <h1 class="sobre_mi_title">Desarrollador Web</h1>
+         <div class="sticker"> 
+             <img src="../../../assets/img/sticker.png" alt="sticker_jparvel" class="sticker_img">
+        </div>
+    </div>
+    <div class="fondo">
+        <img src="../../../assets/img/fondo_sobremi.png" alt="fondo_jparvel" class="fondo_img">
+    </div>
+</div>
+<div class="sobre-mi">
+    <h2 class="titulo_web"> Hola soy {{title}}, Bienvenidos a mi Portfolio </h2>
+    <p> Me dedico al desarrollo de paginas webs, actualmente resido en la isla de Tenerife.</p>
+    <p> En esta pagina, busco compartir con ustedes todos mis trabajos en desarrollo webs, desde paginas realizadas en Wordpress hasta paginas realizadas a través de tecnologia MEAN STACK (Mongodb, Express, Angular y Nodejs).</p>
+    <p> Tambien en muchos de los trabajos que encontraras en este portfolio, podrás comprobar otra de mis grandes pasiones, el SEO. En la actualidad combino en todos mis trabajo, no solo el trabajo de desarrollo de toda pagina, sino que además, lo combino con un trabajo totalmente especifico de posicionamiento SEO. </p>
+</div>
+<div class="proyectos home_project">
+    <h1 class="titulo_principal"> Projectos </h1>
+    <div class="grid_proyectos clearfix"> 
+        <ul>
+            <li *ngFor="let project of projects" class="project">
+                <div class="grid_proyect">
+                    <a [routerLink]="['/proyecto', project._id]">
+                        <div class="image">
+                            <img src="{{url+'get-image/'+project.image}}" *ngIf="project.image" class="imagen_proyecto"> 
+                            <div class="tarjeta_proyecto">
+                                <h3 class="texto_proyecto_imagen">{{project.name}}</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>  
+
+</div>
+<div class="contenido_contact">
+    <div class="home_contact">  
+        <h1 class="home_text_contact">Contacto</h1>
+
+        <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm.value)">
+            <p>
+                <label for="name">Nombre</label>
+                <input type="text" name="name"  #name="ngModel" [(ngModel)]="nombre" required/>
+                <span class="form_error" *ngIf="name.touched && !name.valid">
+                    El nombre es obligatorio
+                </span>
+            </p>
+
+            <p>
+                <label for="email">Email</label>
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="correo" required/>
+                <span class="form_error" *ngIf="email.touched && !email.valid">
+                    La dirección email es obligatoria
+                </span>
+            </p>
+
+            <p>
+                <label for="asunto">Asunto</label>
+                <input type="text" name="asunto"  #asunto="ngModel" [(ngModel)]="text_asunto" required/>
+                <span class="form_error" *ngIf="asunto.touched && !asunto.valid">
+                    El nombre es obligatorio
+                </span>
+            </p>
+
+            <p>
+                <label for="texto">Mensaje</label>
+                <textarea rows="4" cols="40" name="mensaje" #mensaje="ngModel" [(ngModel)]="text_mensaje" required> </textarea>
+                <span class="form_error"  *ngIf="mensaje.touched && !mensaje.valid">
+                    La categoria es obligatoria
+                </span>
+            </p>
+
+            <div class="boton">
+                <input type="submit" class="botonweb" value="Enviar" [disabled]="!projectForm.form.valid">
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="logo_leng">
+        <img src="../../../assets/img/mongodb.png" alt="mongodb_jparvel" class="img_leng">
+        <img src="../../../assets/img/express.png" alt="express_jparvel" class="img_leng">
+        <img src="../../../assets/img/angular.png" alt="angular_jparvel" class="img_leng">
+        <img src="../../../assets/img/nodejs.png" alt="nodejs_jparvel" class="img_leng">
+</div>
+

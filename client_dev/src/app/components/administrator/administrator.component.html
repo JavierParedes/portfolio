@@ -1,0 +1,39 @@
+<div class="administrator">
+    <h1>{{title}}</h1>
+    <div>
+        <h3> Usuarios </h3>
+        <hr class="separator_panel">
+        <div class="icons_panel">
+            <a [routerLink]="['/registrar']" [routerLinkActive]="['actived']"> 
+                <div class="icons_format">
+                    <i class="fa-solid fa-user fa-2x"></i> 
+                    <p class="text_administrator">Crear Usuario</p>
+                </div>
+            </a>
+            <a [routerLink]="['/usuarios']" [routerLinkActive]="['actived']">
+                <div class="icons_format">
+                    <i class="fa-solid fa-users fa-2x"></i>
+                    <p class="text_administrator">Usuario</p>
+               </div>
+            </a>
+        </div>
+    </div>
+    <div>
+        <h3> Proyectos </h3>
+        <hr class="separator_panel">
+        <div class="icons_panel">
+            <a [routerLink]="['/crear-proyecto']" [routerLinkActive]="['actived']"> 
+                <div class="icons_format">
+                    <i class="fa-solid fa-tarp fa-2x"></i> 
+                    <p class="text_administrator">Crear Proyecto</p>
+                </div>
+            </a>
+            <a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']">
+                <div class="icons_format">
+                    <i class="fa-solid fa-diagram-project fa-2x"></i>
+                   <p class="text_administrator">Proyecto</p>
+               </div>
+            </a>
+        </div>
+    </div>
+</div>

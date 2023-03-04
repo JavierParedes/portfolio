@@ -1,0 +1,27 @@
+<div class="contenido content_user">
+    <div class="imguser_form" *ngIf="userdata">
+        <img src="{{url+'get-image/'+userdata.image}}" *ngIf="userdata.image" class="img_user"> 
+    </div>
+    <div class="textuser_form">
+        <h1> Usuario</h1>
+        <hr class="separator_user">
+        <p class="textusers_form">Nombre: {{userdata.name}}</p>
+        <p class="textusers_form">Apellidos: {{userdata.surname}}</p>
+        <p class="textusers_form">Nick: {{userdata.nick}}</p>
+        <p class="textusers_form">Email: {{userdata.email}}</p>
+ 
+        <div class="botones_proyecto boton_user" *ngIf="identity">
+                <p *ngIf="confirm==false">
+                    <a [routerLink]="['/editar-usuario', userdata._id]" class="button-edit botonweb"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                    <a (click)="setConfirm(true)" class="button-delete botonweb"> <i class="fa-solid fa-trash"></i> </a>
+                </p>
+        
+                <p *ngIf="confirm==true">
+                    <span class="confirm">Estas seguro de eliminar este usuario</span> 
+                    <a (click)="setConfirm(false)" class="button-edit botonweb"> Cancelar </a>
+                    <a (click)="deleteUser(userdata._id)" class="button-delete botonweb"> Eliminar </a>
+                </p>
+        </div>
+    </div>
+</div>
+

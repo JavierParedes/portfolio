@@ -1,0 +1,22 @@
+
+<nav class="menu">
+    <label class="logo"> <a href="/inicio">JPARVEL</a></label>
+
+    <ul class="menu_items">
+        <li><a [routerLink]="['/home']" [routerLinkActive]="['actived']">Inicio</a></li>
+        <li><a [routerLink]="['/sobre-mi']" [routerLinkActive]="['actived']">Sobre  mi</a></li>
+        <li><a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']"> Proyectos </a></li>
+        <li><a [routerLink]="['/contacto']" [routerLinkActive]="['actived']"> Contacto </a></li>
+        <li><a [routerLink]="['/administrador']" [routerLinkActive]="['actived']" *ngIf="identity"> Administrar </a></li>
+        <li><a [routerLink]="['/usuario/', identity._id]" [routerLinkActive]="['actived']" *ngIf="identity"> Mi Usuario </a></li>
+        <li><a (click)="logout()" [routerLink]="['/home']" [routerLinkActive]="['actived']" *ngIf="identity"> Cerrar sesión </a></li>
+        <li>  <img src="{{url+'get-image-user/'+ identity.image}}" *ngIf="identity && identity.image" alt="avatar" class="avatar"> </li>
+    </ul>
+
+    <span class="btn_menu">
+        <i class="fa fa-bars"></i>
+    </span>
+    
+</nav>
+
+

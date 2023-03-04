@@ -1,0 +1,38 @@
+<div class="proyectos">
+    <h1 class="titulo_principal"> Usuarios </h1>
+    <div class="grid_usuario"> 
+        <ul>
+            <li *ngFor="let user of users" class="list_user">
+                <hr class="user_separator">
+                <div class="grid_user">
+                        <div class="box_image_user">
+                            <img src="{{url+'get-image-user/'+user.image}}" *ngIf="user.image" class="image_user"> 
+                        </div>
+                        <div class="cont_user">
+                             <p class="text_user"> {{user.name}}</p>
+                             <p class="text_user"> {{user.surname}} </p>
+                             <p class="text_user"> {{user.nick}} </p>
+                             <p class="text_user"> {{user.email}} </p>
+                             <p class="text_user">{{user.type}} </p>
+                        </div>
+                        <div class="opc_user">
+                            <div class="botones_proyecto" >
+                                <p *ngIf="confirm==false">
+                                    <a [routerLink]="['/editar-usuario', user._id]" class="button-edit botonweb"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                                    <a (click)="setConfirm(true)" class="button-delete botonweb"> <i class="fa-solid fa-trash"></i> </a>
+                                </p>
+                        
+                                <p *ngIf="confirm==true">
+                                    <span class="confirm">Estas seguro de eliminar este usuario</span> 
+                                    <a (click)="setConfirm(false)" class="button-edit botonweb"> Cancelar </a>
+                                    <a (click)="deleteUser(user._id)" class="button-delete botonweb"> Eliminar </a>
+                                </p>
+                            </div>
+                        </div>           
+                </div>
+            </li>
+        </ul>
+    </div>  
+
+</div>
+
